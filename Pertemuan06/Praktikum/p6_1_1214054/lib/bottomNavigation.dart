@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+import 'package:p6_1_1214054/inputValidation.dart';
+import 'package:p6_1_1214054/myInput.dart';
+
+class DynamicBottomNavbar extends StatefulWidget {
+  const DynamicBottomNavbar({super.key});
+
+  @override
+  State<DynamicBottomNavbar> createState() => _DynamicBottomNavbarState();
+}
+
+class _DynamicBottomNavbarState extends State<DynamicBottomNavbar> {
+  int _currentPageIndex = 0;
+  final List<Widget> _pages = [
+    const MyInput(),
+    const MyInputValidation(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _pages[_currentPageIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentPageIndex,
+        onTap: (int index) {
+          setState(() {
+            _currentPageIndex = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.input),
+            label: 'Latihan',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.task_alt_outlined),
+            label: 'Input Validation',
+          ),
+        ],
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.black.withOpacity(.60),
+      ),
+    );
+  }
+}
