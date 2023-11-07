@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:p6_1_1214054/inputValidation.dart';
 import 'package:p6_1_1214054/myInput.dart';
+import 'package:p6_1_1214054/myInputForm.dart';
 
 class DynamicBottomNavbar extends StatefulWidget {
   const DynamicBottomNavbar({super.key});
@@ -14,6 +15,7 @@ class _DynamicBottomNavbarState extends State<DynamicBottomNavbar> {
   final List<Widget> _pages = [
     const MyInput(),
     const MyInputValidation(),
+    const MyInputForm(),
   ];
 
   @override
@@ -35,6 +37,10 @@ class _DynamicBottomNavbarState extends State<DynamicBottomNavbar> {
           BottomNavigationBarItem(
             icon: Icon(Icons.task_alt_outlined),
             label: 'Input Validation',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list_alt_outlined),
+            label: 'Input Form',
           ),
         ],
         backgroundColor: Colors.white,
